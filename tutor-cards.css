@@ -1,0 +1,13 @@
+
+.tutor-card{margin:10px 0 0;padding:11px;border:1px solid #ded9f3;border-radius:14px;background:#fcfbff;min-width:0}
+.tutor-card strong{display:block;font-size:14px;color:#453475}
+.tutor-card p,.tutor-card figcaption{font-size:13px;line-height:1.5;margin:5px 0;color:#545476}
+.tutor-visual svg{display:block;width:100%;height:auto;font:13px system-ui,sans-serif;fill:#3e3b59}
+.tutor-axis,.tutor-grid,.tutor-curve,.tutor-guide{fill:none;stroke-width:1.4}
+.tutor-axis{stroke:#737393}.tutor-grid{stroke:#d2cce6;stroke-dasharray:4 4}
+.tutor-curve{stroke:#6448bb;stroke-width:3}.tutor-guide{stroke:#8d79c8;stroke-dasharray:4 4}
+.tutor-end{fill:#6448bb}.tutor-point{fill:#ca593c;stroke:white;stroke-width:2}
+.tutor-range-label{display:block;font-size:13px}.tutor-range-label input{display:block;width:100%;min-height:44px;margin:0;accent-color:#6448bb;touch-action:pan-y}
+.tutor-card output{display:block;border-radius:9px;padding:6px;background:#efebfa;font-size:14px;line-height:1.7}
+.tutor-stops{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.tutor-stops button{min-height:44px;padding:4px 9px;border:1px solid #d8ccef;border-radius:9px;background:#f7f2ff;color:#45287b;font-size:12px}
