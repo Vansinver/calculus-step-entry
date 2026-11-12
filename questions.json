@@ -118,7 +118,8 @@
           "x = −1 与 x = 1 时，arcsin 均有定义，且分母不为零。因此这两个端点保留，用闭括号表示。",
           "<details class=\"book\"><summary>▤ <b>回归教材</b><span>p10</span></summary><div class=\"book-body\"><b>《高等数学（本科少学时类型）》</b><p>第五版 · 上册 · 同济大学数学科学学院编</p><p>第一章第一节 · 纸质书印刷页码 10</p><p>反正弦允许输入−1和1。</p><p>翻书后，可直接回到当前步骤继续。</p></div></details>"
         ]
-      }
+      },
+      "score": 2
     },
     {
       "paper": "2025—2026 · 经管少学时 A 卷",
@@ -337,6 +338,1902 @@
           ""
         ]
       }
+    },
+    {
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "bookChapter": "第二章第一节 · 导数的定义",
+      "knowledge": "导数的定义 · 自变量增量",
+      "questionText": "若 \\(f'(x_0)=5\\)，求下列极限。",
+      "conditionFormula": "",
+      "symbol": "\\Delta x",
+      "firstAsk": "这题应该先看分子还是分母？只给我一步提示。",
+      "askLabel": "先找实际的自变量增量",
+      "topic": "先认清自变量变了多少，再把差商写成导数定义的形式。",
+      "answerIntro": "从自变量的实际增量出发。",
+      "answerExplanation": "令 \\(\\Delta x=2h\\)。当 \\(h\\to0\\) 时，\\(\\Delta x\\to0\\)，原差商等于 \\(2\\dfrac{f(x_0+\\Delta x)-f(x_0)}{\\Delta x}\\)。由导数定义，极限为 \\(2f'(x_0)=10\\)。",
+      "draftPlaceholder": "填出极限值。你也可以顺手写下实际增量。",
+      "chatPlaceholder": "例如：为什么分母写的是 h，实际增量却要另外找？",
+      "mathKeys": [
+        [
+          "h",
+          "h"
+        ],
+        [
+          "Δx",
+          "\\Delta x"
+        ],
+        [
+          "x₀",
+          "x_0"
+        ],
+        [
+          "f′",
+          "f'(x_0)"
+        ],
+        [
+          "分式",
+          "\\dfrac{#0}{#?}"
+        ],
+        [
+          "极限",
+          "\\lim_{h\\to0}"
+        ],
+        [
+          "→",
+          "\\to"
+        ]
+      ],
+      "id": "paper-q04",
+      "label": "原卷第4题",
+      "source": "填空题 · 原卷第4题 · 2分",
+      "indexLabel": "第 04 / 28 题",
+      "formula": "\\lim_{h\\to0}\\dfrac{f(x_0+2h)-f(x_0)}{h}=\\underline{\\qquad}",
+      "answer": "10",
+      "lessons": [
+        [
+          "从分子找实际增量",
+          "比较两个函数的输入，写出 \\((x_0+2h)-x_0\\)。",
+          "66",
+          "看公式（4）：分母是自变量的实际增量。",
+          "怎样判断这里的实际增量？"
+        ],
+        [
+          "把分母配成实际增量",
+          "在 \\(h\\ne0\\) 时把分母配成 \\(2h\\)，同时在整个分式外补上相应的系数。",
+          "66—67",
+          "对照公式（4）和（5），两种写法的分母都表示同一个输入差。",
+          "为什么配成导数定义后会多出一个系数？"
+        ],
+        [
+          "确认新变量也趋于零",
+          "换元时确认 \\(h\\to0\\) 会让 \\(2h\\to0\\)，然后才能使用题目给的导数值。",
+          "66",
+          "在公式（4）中对照趋零变量与分母的关系。",
+          "换成新变量以后，为什么还能用导数定义？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该先看分子还是分母？只给我一步提示。"
+        },
+        {
+          "id": "increment",
+          "intent": "概念",
+          "text": "怎样判断这里的实际增量？"
+        },
+        {
+          "id": "book",
+          "intent": "回归教材",
+          "text": "教材哪一页讲导数定义？我该看哪个式子？"
+        },
+        {
+          "id": "factor",
+          "intent": "追问",
+          "text": "为什么配成导数定义后会多出一个系数？",
+          "after": "first-step"
+        },
+        {
+          "id": "limit",
+          "intent": "追问",
+          "text": "换成新变量以后，为什么还能用导数定义？",
+          "after": "factor"
+        }
+      ]
+    },
+    {
+      "id": "paper-q05",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第5题",
+      "source": "填空题 · 原卷第5题 · 2分",
+      "indexLabel": "第 05 / 28 题",
+      "examNumber": 5,
+      "score": 2,
+      "type": "fill",
+      "questionText": "定积分 \\(\\displaystyle\\int_{-\\pi}^{\\pi}x\\sqrt{\\sin^2x+\\ln(1+x^2)}\\,dx=\\)________。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第五章第三节 · 对称区间积分",
+      "knowledge": "奇偶性与对称区间定积分",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "检查各层奇偶性，再解释积分性质和使用条件",
+      "answer": "0",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "根号内两项均为偶函数且非负，根号也为偶函数。乘以 \\(x\\) 得连续奇函数，在对称区间上的定积分为零。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "检查各层奇偶性，再解释积分性质和使用条件",
+          "8、225",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "根号内为什么是偶函数？左右如何抵消？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "根号内为什么是偶函数？左右如何抵消？"
+        }
+      ],
+      "blankCount": 1
+    },
+    {
+      "id": "paper-q06",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第6题",
+      "source": "选择题 · 原卷第6题 · 2分",
+      "indexLabel": "第 06 / 28 题",
+      "examNumber": 6,
+      "score": 2,
+      "type": "single",
+      "questionText": "函数 \\(y=\\ln(x-1)\\) 在区间（ ）内有界。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\((2,3)\\)",
+        "\\((1,2)\\)",
+        "\\((2,+\\infty)\\)",
+        "\\((1,+\\infty)\\)"
+      ],
+      "bookChapter": "第一章第一节 · 函数的有界性",
+      "knowledge": "函数的有界性",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "对候选区间检查函数值是否能统一限制",
+      "answer": "A",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "\\(2<x<3\\) 时 \\(0<\\ln(x-1)<\\ln 2\\)。靠近 \\(1^+\\) 时函数趋向负无穷，向正无穷远时函数值也无上界。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "对候选区间检查函数值是否能统一限制",
+          "7",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "有界是什么？开区间也能有界吗？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "有界是什么？开区间也能有界吗？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q07",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第7题",
+      "source": "选择题 · 原卷第7题 · 2分",
+      "indexLabel": "第 07 / 28 题",
+      "examNumber": 7,
+      "score": 2,
+      "type": "single",
+      "questionText": "设 \\(f(x)=x\\sin(1/x)\\)（\\(x\\ne0\\)），\\(f(0)=0\\)，则 \\(f(x)\\) 在 \\(x=0\\) 处（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "间断",
+        "极限不存在",
+        "连续且可导",
+        "连续不可导"
+      ],
+      "bookChapter": "第二章第一节 · 导数与连续性",
+      "knowledge": "连续与可导",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "连续性与可导性分两次判断",
+      "answer": "D",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "由 \\(|x\\sin(1/x)|\\le |x|\\) 得极限等于 \\(f(0)=0\\)。在零点的差商为 \\(\\sin(1/x)\\)，随 \\(x\\to0\\) 振荡，导数不存在。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "连续性与可导性分两次判断",
+          "53—54、66—67、71—73",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么连续还不可导？振荡一定没极限吗？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么连续还不可导？振荡一定没极限吗？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q08",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第8题",
+      "source": "选择题 · 原卷第8题 · 2分",
+      "indexLabel": "第 08 / 28 题",
+      "examNumber": 8,
+      "score": 2,
+      "type": "single",
+      "questionText": "当 \\(x\\to0\\) 时，下面哪组函数互为等价无穷小量（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(\\sin x\\) 与 \\(\\tan x\\)",
+        "\\(\\sin x\\) 与 \\(x^2\\)",
+        "\\(\\cos x\\) 与 \\(x\\)",
+        "\\(\\ln(1+x)\\) 与 \\(x^2\\)"
+      ],
+      "bookChapter": "第一章第七节 · 无穷小的比较",
+      "knowledge": "等价无穷小",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "说明趋向条件和等价关系，再比较选项",
+      "answer": "A",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "\\(\\sin x\\) 与 \\(\\tan x\\) 均趋于零，二者的比值在去心邻域内为 \\(\\cos x\\)，极限等于 1。其余各组不满足等价条件。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "说明趋向条件和等价关系，再比较选项",
+          "50—52",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "两个都趋零就等价吗？等价是什么意思？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "两个都趋零就等价吗？等价是什么意思？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q09",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第9题",
+      "source": "选择题 · 原卷第9题 · 2分",
+      "indexLabel": "第 09 / 28 题",
+      "examNumber": 9,
+      "score": 2,
+      "type": "single",
+      "questionText": "下面哪个极限不等于1（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(\\lim_{x\\to\\infty}x\\sin(1/x)\\)",
+        "\\(\\lim_{x\\to0}(e^x-1)/x\\)",
+        "\\(\\lim_{x\\to\\infty}(1+x)^{1/x}\\)",
+        "\\(\\lim_{x\\to0}(1+x)^{1/x}\\)"
+      ],
+      "bookChapter": "第一章第六节 · 两个重要极限",
+      "knowledge": "重要极限与趋向条件",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "为各选项识别趋向与标准形式",
+      "answer": "D",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "A 换元 \\(t=1/x\\) 后用正弦商极限，B 为指数差商极限，二者为 1。C 在实数定义域内只考虑正无穷方向，取对数后 \\(\\ln(1+x)/x\\to0\\)，所以极限为 1。D 是底数随 \\(x\\to0\\) 的重要极限，结果为 \\(e\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "为各选项识别趋向与标准形式",
+          "42—47",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "这能套哪个极限？趋向条件满足吗？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "这能套哪个极限？趋向条件满足吗？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q10",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第10题",
+      "source": "选择题 · 原卷第10题 · 2分",
+      "indexLabel": "第 10 / 28 题",
+      "examNumber": 10,
+      "score": 2,
+      "type": "single",
+      "questionText": "设函数 \\(y=x/\\tan x\\)，则 \\(x=\\pi/2\\) 为其什么类型的间断点（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "跳跃",
+        "可去",
+        "振荡",
+        "无穷"
+      ],
+      "bookChapter": "第一章第八节 · 间断点分类",
+      "knowledge": "可去间断点",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先查原函数是否定义，再看极限与分类",
+      "answer": "B",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "原式在 \\(\\pi/2\\) 未定义。其去心邻域内等于 \\(x\\cos x/\\sin x\\)，左右极限均为 0，可补点使其连续。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先查原函数是否定义，再看极限与分类",
+          "54—56",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "化简后有值为何原函数仍间断？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "化简后有值为何原函数仍间断？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q11",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第11题",
+      "source": "选择题 · 原卷第11题 · 2分",
+      "indexLabel": "第 11 / 28 题",
+      "examNumber": 11,
+      "score": 2,
+      "type": "single",
+      "questionText": "曲线 \\(y=x^2\\) 与 \\(y=a\\ln x\\) 相切，其中 \\(a\\ne0\\)，则 \\(a=\\)（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(4e\\)",
+        "\\(3e\\)",
+        "\\(2e\\)",
+        "\\(e\\)"
+      ],
+      "bookChapter": "第二章 · 导数的几何意义与求导",
+      "knowledge": "曲线相切的条件",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "引入切点，同时列函数值相等与斜率相等",
+      "answer": "C",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "设切点横坐标为 \\(t>0\\)。同点和同斜率给出 \\(t^2=a\\ln t,\\ 2t=a/t\\)，代入 \\(a=2t^2\\) 得 \\(\\ln t=1/2\\)，故 \\(a=2e\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "引入切点，同时列函数值相等与斜率相等",
+          "70、83",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "相切要满足几个条件？为什么斜率相同还不够？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "相切要满足几个条件？为什么斜率相同还不够？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q12",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第12题",
+      "source": "选择题 · 原卷第12题 · 2分",
+      "indexLabel": "第 12 / 28 题",
+      "examNumber": 12,
+      "score": 2,
+      "type": "single",
+      "questionText": "设函数 \\(f(x)\\) 可微，则 \\(df(\\ln(2+\\sin x))=\\)（ ）\\(d\\sin x\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(f'(x)\\)",
+        "\\(\\dfrac{f'(\\ln(2+\\sin x))}{2+\\sin x}\\)",
+        "\\(\\dfrac{f'(\\ln(2+\\sin x))\\cos x}{2+\\sin x}\\)",
+        "\\(f'(\\ln(2+\\sin x))\\)"
+      ],
+      "bookChapter": "第二章第七节 · 微分的运算",
+      "knowledge": "复合函数的微分",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "指认最终要求的微分变量，再分层计算",
+      "answer": "B",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "令 \\(u=\\sin x\\)，则 \\(df(\\ln(2+u))=f'(\\ln(2+u))\\,du/(2+u)\\)。因题给 \\(d\\sin x=du\\)，选 B。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "指认最终要求的微分变量，再分层计算",
+          "83、110—112",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "d sin x与dx有何区别？对谁微分？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "d sin x与dx有何区别？对谁微分？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q13",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第13题",
+      "source": "选择题 · 原卷第13题 · 2分",
+      "indexLabel": "第 13 / 28 题",
+      "examNumber": 13,
+      "score": 2,
+      "type": "single",
+      "questionText": "设函数 \\(f(x)\\) 的 \\(n\\) 阶导数存在，\\(y=f(2x+3)\\)，则 \\(y^{(n)}=\\)（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(f^{(n)}(2x+3)\\)",
+        "\\(2^nf^{(n)}(2x+3)\\)",
+        "\\(3^nf^{(n)}(2x+3)\\)",
+        "\\(6^nf^{(n)}(2x+3)\\)"
+      ],
+      "bookChapter": "第二章第四节 · 高阶导数",
+      "knowledge": "线性复合函数的高阶导数",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先看一阶二阶，再概括n阶系数",
+      "answer": "B",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "对 \\(f^{(k)}(2x+3)\\) 再求导时，链式法则每次提供一个因子 2，因此 \\(y^{(n)}=2^nf^{(n)}(2x+3)\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先看一阶二阶，再概括n阶系数",
+          "83、89—91",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么每求一次都出现系数？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么每求一次都出现系数？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q14",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第14题",
+      "source": "选择题 · 原卷第14题 · 2分",
+      "indexLabel": "第 14 / 28 题",
+      "examNumber": 14,
+      "score": 2,
+      "type": "single",
+      "questionText": "下面函数在给定区间上满足罗尔定理条件的是（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(y=1/x^2,[-1,1]\\)",
+        "\\(y=|x|,[-1,1]\\)",
+        "\\(y=\\ln x,[1,e]\\)",
+        "\\(y=x^2,[-1,1]\\)"
+      ],
+      "bookChapter": "第三章第一节 · 罗尔定理",
+      "knowledge": "罗尔定理的三个条件",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "三个条件逐一排查选项",
+      "answer": "D",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "检查闭区间连续、开区间可导及两端函数值相等。A 在 0 无定义，B 在 0 不可导，C 端点值不同。\\(x^2\\) 在 \\([-1,1]\\) 满足三个条件。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "三个条件逐一排查选项",
+          "119—121",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "闭区间和开区间为何分开说？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "闭区间和开区间为何分开说？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q15",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第15题",
+      "source": "选择题 · 原卷第15题 · 2分",
+      "indexLabel": "第 15 / 28 题",
+      "examNumber": 15,
+      "score": 2,
+      "type": "single",
+      "questionText": "下面关于函数 \\(y=\\ln(1+x^2)\\) 的说法正确的是（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "有1个极值点，曲线上有1个拐点",
+        "有1个极值点，曲线上有2个拐点",
+        "无极值点，曲线上有1个拐点",
+        "无极值点，曲线上有2个拐点"
+      ],
+      "bookChapter": "第三章 · 极值与曲线凹凸",
+      "knowledge": "极值点与拐点",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "分别找极值和拐点候选，再作变号判定",
+      "answer": "B",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "\\(y^\\prime=2x/(1+x^2)\\) 在 0 处由负变正，只有一个极值点。\\(y^{\\prime\\prime}=2(1-x^2)/(1+x^2)^2\\) 在 \\(-1,1\\) 两处均变号，故有两个拐点。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "分别找极值和拐点候选，再作变号判定",
+          "140—147",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "极值与拐点区别是什么？为什么还要看变号？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "极值与拐点区别是什么？为什么还要看变号？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q16",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第16题",
+      "source": "选择题 · 原卷第16题 · 2分",
+      "indexLabel": "第 16 / 28 题",
+      "examNumber": 16,
+      "score": 2,
+      "type": "single",
+      "questionText": "曲线 \\(y=(x^2+1)/(x-1)\\) 的渐近线是（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(x=1\\) 与 \\(y=x+1\\)",
+        "\\(x=1\\) 与 \\(y=x\\)",
+        "\\(x=1\\) 与 \\(y=2x\\)",
+        "无渐近线"
+      ],
+      "bookChapter": "第一、三章 · 渐近线相关基础",
+      "knowledge": "铅直与斜渐近线",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "分开寻找竖直和斜渐近线，并核查差的极限",
+      "answer": "A",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "\\(\\dfrac{x^2+1}{x-1}=x+1+\\dfrac{2}{x-1}\\)。当 \\(x\\to1^\\pm\\)，余项单侧趋于无穷。当 \\(x\\to\\infty\\)，余项趋于 0，得到斜渐近线 \\(y=x+1\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "分开寻找竖直和斜渐近线，并核查差的极限",
+          "33、155、158—159",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么除一下能找斜线？渐近线是什么意思？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么除一下能找斜线？渐近线是什么意思？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q17",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第17题",
+      "source": "选择题 · 原卷第17题 · 2分",
+      "indexLabel": "第 17 / 28 题",
+      "examNumber": 17,
+      "score": 2,
+      "type": "single",
+      "questionText": "若 \\(\\int f(x)\\,dx=x^2e^{2x}+C\\)，则 \\(f(x)=\\)（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(2xe^{2x}\\)",
+        "\\(2x^2e^{2x}\\)",
+        "\\(xe^{2x}\\)",
+        "\\(2xe^{2x}(1+x)\\)"
+      ],
+      "bookChapter": "第四章第一节 · 原函数",
+      "knowledge": "原函数与不定积分",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "解释逆关系后对原函数求导",
+      "answer": "D",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "对原函数 \\(x^2e^{2x}+C\\) 求导。用乘积法则和链式法则，得 \\(2xe^{2x}+2x^2e^{2x}=2xe^{2x}(1+x)\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "解释逆关系后对原函数求导",
+          "76、83、171—172",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么等式能两边求导？C去哪了？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么等式能两边求导？C去哪了？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q18",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第18题",
+      "source": "选择题 · 原卷第18题 · 2分",
+      "indexLabel": "第 18 / 28 题",
+      "examNumber": 18,
+      "score": 2,
+      "type": "single",
+      "questionText": "设 \\(f(x)=\\displaystyle\\int_{-1}^{x^2}te^{t^2}\\,dt\\)，则 \\(f'(x)=\\)（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(x^2e^{x^4}\\)",
+        "\\(2x^3e^{x^4}\\)",
+        "\\(xe^{x^2}\\)",
+        "以上都不对"
+      ],
+      "bookChapter": "第五章第二节 · 变上限积分",
+      "knowledge": "变上限积分求导",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "暂设上限为u，求外层导数，再乘u的导数",
+      "answer": "B",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "外层积分对上限 \\(u\\) 的导数是 \\(ue^{u^2}\\)。令 \\(u=x^2\\)，再乘 \\(u^\\prime=2x\\)，得到 \\(2x^3e^{x^4}\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "暂设上限为u，求外层导数，再乘u的导数",
+          "83、216—218",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "t是什么？为什么不是只把t换成x²？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "t是什么？为什么不是只把t换成x²？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q19",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第19题",
+      "source": "选择题 · 原卷第19题 · 2分",
+      "indexLabel": "第 19 / 28 题",
+      "examNumber": 19,
+      "score": 2,
+      "type": "single",
+      "questionText": "下面积分与 \\(\\int_0^a f(x)\\,dx\\) 相等的是（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(\\int_0^a f(x-a)\\,dx\\)",
+        "\\(\\int_a^0 f(x-a)\\,dx\\)",
+        "\\(\\int_0^a f(a-x)\\,dx\\)",
+        "\\(\\int_a^0 f(a-x)\\,dx\\)"
+      ],
+      "bookChapter": "第五章第三节 · 定积分换元",
+      "knowledge": "定积分换元",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "分开写变量反解、函数、微分、端点，再处理符号与变量名",
+      "answer": "C",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "在 \\(\\int_0^a f(a-x)\\,dx\\) 中令 \\(t=a-x\\)，则 \\(dx=-dt\\)，两个端点依次变为 \\(a,0\\)。交换上下限抵消负号，得 \\(\\int_0^a f(t)\\,dt\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "分开写变量反解、函数、微分、端点，再处理符号与变量名",
+          "210—211、222—224",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "x与t怎样对应？端点为什么变化？改名也是换元吗？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "x与t怎样对应？端点为什么变化？改名也是换元吗？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q20",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第20题",
+      "source": "选择题 · 原卷第20题 · 2分",
+      "indexLabel": "第 20 / 28 题",
+      "examNumber": 20,
+      "score": 2,
+      "type": "single",
+      "questionText": "下面广义积分收敛的是（ ）。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [
+        "\\(\\int_1^{+\\infty}dx/\\sqrt{x}\\)",
+        "\\(\\int_{-\\infty}^{+\\infty}\\sin x\\,dx\\)",
+        "\\(\\int_0^1dx/\\sqrt{x}\\)",
+        "\\(\\int_{-1}^1dx/x\\)"
+      ],
+      "bookChapter": "第五章第六节 · 反常积分",
+      "knowledge": "广义积分的收敛性",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "找无穷端点或奇点，拆开后按极限判断",
+      "answer": "C",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "C 在 \\(0^+\\) 的截断积分为 \\(2-2\\sqrt{\\varepsilon}\\to2\\)。A 上端发散，B 在无穷远的单侧积分无极限，D 在 0 左右的单侧积分各自发散。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "找无穷端点或奇点，拆开后按极限判断",
+          "248—253",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "区间有限为何还广义？为什么不能直接抵消？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "区间有限为何还广义？为什么不能直接抵消？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q21",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第21题",
+      "source": "计算题 · 原卷第21题 · 7分",
+      "indexLabel": "第 21 / 28 题",
+      "examNumber": 21,
+      "score": 7,
+      "type": "solution",
+      "questionText": "\\(\\displaystyle\\lim_{x\\to\\infty}\\left(\\frac{2x+3}{2x+1}\\right)^{x-1}\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第一章第六节 · 指数型重要极限",
+      "knowledge": "幂指函数极限",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "识别趋1底数与发散指数，选择适合方法",
+      "answer": "e",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "令 \\(u=2/(2x+1)\\)，底数为 \\(1+u\\)，且 \\(u(x-1)\\to1\\)。将原式写成 \\(\\big[(1+u)^{1/u}\\big]^{u(x-1)}\\)，得到 \\(e\\)，正负无穷远方向一致。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "识别趋1底数与发散指数，选择适合方法",
+          "46—47",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么不是1？如何变成标准形式？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么不是1？如何变成标准形式？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q22",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第22题",
+      "source": "计算题 · 原卷第22题 · 7分",
+      "indexLabel": "第 22 / 28 题",
+      "examNumber": 22,
+      "score": 7,
+      "type": "solution",
+      "questionText": "\\(\\displaystyle\\lim_{x\\to0^+}\\frac{\\ln\\cot x}{\\ln x}\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第三章第二节 · 洛必达法则",
+      "knowledge": "单侧对数比极限",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先判未定式和定义域，再说明工具条件与化简",
+      "answer": "-1",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "在足够小的右邻域，\\(x\\cot x=\\cos x/(\\sin x/x)\\to1\\)。因此 \\(\\ln\\cot x=-\\ln x+\\ln(x\\cot x)\\)，后一个对数趋 0，除以 \\(\\ln x\\to-\\infty\\) 后趋 0。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先判未定式和定义域，再说明工具条件与化简",
+          "42—43、126—128",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么能洛必达？哪一步需要三角公式？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么能洛必达？哪一步需要三角公式？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q23",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第23题",
+      "source": "计算题 · 原卷第23题 · 7分",
+      "indexLabel": "第 23 / 28 题",
+      "examNumber": 23,
+      "score": 7,
+      "type": "solution",
+      "questionText": "求方程 \\(xy=e^{x+y}\\) 确定的隐函数 \\(y=f(x)\\) 的导数。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第二章第五节 · 隐函数的导数",
+      "knowledge": "隐函数求导",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "统一求导变量，保留y'，收集同类项",
+      "answer": "y^\\prime=\\dfrac{e^{x+y}-y}{x-e^{x+y}}",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "两边对 \\(x\\) 求导：\\(y+xy^\\prime=e^{x+y}(1+y^\\prime)\\)。收集 \\(y^\\prime\\) 后在 \\(x-e^{x+y}\\ne0\\) 的可微分支处相除。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "统一求导变量，保留y'，收集同类项",
+          "93—94、100",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "y为何也要求导？能用微分吗？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "y为何也要求导？能用微分吗？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q24",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第24题",
+      "source": "计算题 · 原卷第24题 · 7分",
+      "indexLabel": "第 24 / 28 题",
+      "examNumber": 24,
+      "score": 7,
+      "type": "solution",
+      "questionText": "求不定积分 \\(\\int x\\ln(x^2+1)\\,dx\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第四章 · 换元与分部积分",
+      "knowledge": "不定积分的换元与分部",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先简化复合结构，再为剩余积分选择工具，回代及求导检查",
+      "answer": "\\tfrac12\\big[(x^2+1)\\ln(x^2+1)-(x^2+1)\\big]+C",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "令 \\(u=x^2+1\\)，则 \\(du=2x\\,dx\\)。原积分化为 \\(\\tfrac12\\int\\ln u\\,du\\)，分部得 \\(\\tfrac12(u\\ln u-u)+C\\)，再回代。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先简化复合结构，再为剩余积分选择工具，回代及求导检查",
+          "180—182、192—195",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么这样换？下一步用什么公式？怎么检查？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么这样换？下一步用什么公式？怎么检查？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q25",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第25题",
+      "source": "计算题 · 原卷第25题 · 7分",
+      "indexLabel": "第 25 / 28 题",
+      "examNumber": 25,
+      "score": 7,
+      "type": "solution",
+      "questionText": "求定积分 \\(\\displaystyle\\int_{-1}^1\\frac{x}{\\sqrt{5-4x}}\\,dx\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第五章第三节 · 定积分换元",
+      "knowledge": "根式定积分换元",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "根式换元后同步换全部对象，再完成代数和积分",
+      "answer": "\\dfrac16",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "设 \\(u=\\sqrt{5-4x}\\)，则 \\(x=(5-u^2)/4,\\ dx=-u\\,du/2\\)，端点依次为 3 和 1。原积分为 \\(\\frac18\\int_1^3(5-u^2)\\,du=\\frac16\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "根式换元后同步换全部对象，再完成代数和积分",
+          "175、222—224",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "根号怎么消掉？为什么还要算这个积分？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "根号怎么消掉？为什么还要算这个积分？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q26",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第26题",
+      "source": "应用题 · 原卷第26题 · 8分",
+      "indexLabel": "第 26 / 28 题",
+      "examNumber": 26,
+      "score": 8,
+      "type": "solution",
+      "questionText": "求曲线 \\(y=x^2\\) 与 \\(x=y^2\\) 在第1象限围成的有限区域的面积，及该区域围绕 \\(y\\) 轴旋转所成旋转体的体积。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第五章第四节 · 定积分几何应用",
+      "knowledge": "曲线围成面积与旋转体体积",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先画区域；面积与绕y轴体积各自确定变量和截面",
+      "answer": "S=\\dfrac13,\\quad V=\\dfrac{3\\pi}{10}",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "交点为 \\((0,0),(1,1)\\)。面积为 \\(\\int_0^1(\\sqrt x-x^2)\\,dx\\)。绕 \\(y\\) 轴用水平截片时，外半径 \\(\\sqrt y\\)，内半径 \\(y^2\\)，体积为 \\(\\pi\\int_0^1(y-y^4)\\,dy\\)。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先画区域；面积与绕y轴体积各自确定变量和截面",
+          "232、236—237",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "区域在哪里？绕y轴为什么选这个变量？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "区域在哪里？绕y轴为什么选这个变量？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q27",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第27题",
+      "source": "应用题 · 原卷第27题 · 8分",
+      "indexLabel": "第 27 / 28 题",
+      "examNumber": 27,
+      "score": 8,
+      "type": "solution",
+      "questionText": "某产品的需求函数 \\(Q(P)=100-2P\\)，其中 \\(Q,P\\) 分别表示需求量与价格，总成本函数 \\(C(Q)=20+2Q\\)，试求如何定价使得利润最大。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第三章第五节 · 最值与应用建模",
+      "knowledge": "利润最大化",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "统一自变量，建利润函数，带约束检查最大值",
+      "answer": "P=26",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "采用销量等于需求量的题目模型，\\(0\\le P\\le50\\)，利润为 \\(P(100-2P)-[20+2(100-2P)]=-2(P-26)^2+1132\\)。顶点在可行区间内，故定价 26 时利润最大。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "统一自变量，建利润函数，带约束检查最大值",
+          "149—150",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "收入与利润有什么区别？为什么要限制价格范围？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "收入与利润有什么区别？为什么要限制价格范围？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q28",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第28题",
+      "source": "证明题 · 原卷第28题 · 9分",
+      "indexLabel": "第 28 / 28 题",
+      "examNumber": 28,
+      "score": 9,
+      "type": "solution",
+      "questionText": "利用拉格朗日中值定理证明当 \\(x>0\\) 时，\\(\\dfrac{x}{1+x}<\\ln(1+x)<x\\)。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第三章第一节 · 拉格朗日中值定理",
+      "knowledge": "拉格朗日中值定理与不等式",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "选函数和区间，检查条件，由中间点范围估计导数",
+      "answer": "\\dfrac{x}{1+x}<\\ln(1+x)<x",
+      "answerIntro": "已核参考答案",
+      "answerExplanation": "对 \\(g(t)=\\ln(1+t)\\) 在 \\([0,x]\\) 应用拉格朗日中值定理。函数在闭区间连续、开区间可导，存在 \\(0<\\xi<x\\) 使 \\(\\ln(1+x)=x/(1+\\xi)\\)。由 \\(x>0\\) 得到两边的严格不等式。",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "选函数和区间，检查条件，由中间点范围估计导数",
+          "121—122、124",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "为什么选ln？区间如何选择？中间点在哪里？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [
+        {
+          "id": "first-step",
+          "intent": "提示",
+          "text": "这题应该从哪个条件入手？只给我一步提示。"
+        },
+        {
+          "id": "concept",
+          "intent": "概念",
+          "text": "为什么选ln？区间如何选择？中间点在哪里？"
+        }
+      ]
+    },
+    {
+      "id": "paper-q03",
+      "paper": "2025—2026 · 经管少学时 A 卷",
+      "label": "原卷第3题",
+      "source": "填空题 · 原卷第3题 · 2分",
+      "indexLabel": "第 03 / 28 题",
+      "examNumber": 3,
+      "score": 2,
+      "type": "fill",
+      "questionText": "设某商品的需求函数为 \\(Q=40-2p\\)，则价格 \\(p=15\\) 时的需求弹性为________。",
+      "formula": "",
+      "conditionFormula": "",
+      "options": [],
+      "bookChapter": "第二章 · 变化率基础",
+      "knowledge": "需求价格弹性",
+      "symbol": "f(x)",
+      "firstAsk": "这题应该从哪个条件入手？只给我一步提示。",
+      "askLabel": "先想第一步",
+      "topic": "先确认课程公式，再分开求需求值和变化率",
+      "answer": "",
+      "answerIntro": "",
+      "answerExplanation": "",
+      "draftPlaceholder": "记录本题的作答。",
+      "chatPlaceholder": "写下你的疑问，可插入公式。",
+      "mathKeys": [
+        [
+          "分式",
+          "\\frac{#0}{#0}"
+        ],
+        [
+          "极限",
+          "\\lim_{x\\to #0}"
+        ],
+        [
+          "积分",
+          "\\int"
+        ],
+        [
+          "导数",
+          "f'(x)"
+        ],
+        [
+          "∞",
+          "\\infty"
+        ]
+      ],
+      "lessons": [
+        [
+          "从题面条件出发",
+          "先确认课程公式，再分开求需求值和变化率",
+          "66—67、101—106",
+          "阅读相应定义、公式或例题，核对其适用条件。",
+          "弹性衡量什么？为什么要乘这个比值？"
+        ]
+      ],
+      "responses": {},
+      "prompts": [],
+      "blankCount": 1,
+      "gradingPending": "课程采用的需求弹性符号约定待核，本题暂供阅读与自行练习，平台暂不批改。"
     }
   ]
 }

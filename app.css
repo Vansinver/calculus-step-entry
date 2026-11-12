@@ -13,3 +13,7 @@
 .chat-window.expanded .rich-editor{min-height:70px;max-height:145px;font-size:14px}
 .resource-card[open]>summary .disclosure{color:#8d73b7}
 @media(min-width:850px){.chat-window:not(.expanded){height:min(72dvh,660px);width:560px}.chat-window.expanded .chat-message{max-width:800px}.chat-window.expanded .chat-message.user{margin-left:90px}.chat-window.expanded .chat-message.assistant{margin-right:60px}}
+
+.exam-options { margin: .4rem 0; padding-inline-start: 1.8rem; }
+.exam-options li { padding: .25rem .15rem; overflow-wrap: anywhere; }
+.exam-pending { color: var(--ink); }
