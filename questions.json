@@ -201,7 +201,7 @@
           "为什么端点能取"
         ]
       ],
-      "answer": "[−1, 1/2) ∪ (1/2, 1]",
+      "answer": "[-1,\\dfrac{1}{2})\\cup(\\dfrac{1}{2},1]",
       "responses": {
         "arctan是什么": [
           "从正切，反过来看",
@@ -238,7 +238,48 @@
           "x = −1 与 x = 1 时，arcsin 均有定义，且分母不为零。因此这两个端点保留，用闭括号表示。",
           "<details class=\"book\"><summary>▤ <b>回归教材</b><span>p10</span></summary><div class=\"book-body\"><b>《高等数学（本科少学时类型）》</b><p>第五版 · 上册 · 同济大学数学科学学院编</p><p>第一章第一节 · 纸质书印刷页码 10</p><p>反正弦允许输入−1和1。</p><p>翻书后，可直接回到当前步骤继续。</p></div></details>"
         ]
-      }
+      },
+      "prompts": [
+        {
+          "id": "first-layer",
+          "intent": "提示",
+          "text": "我该先检查哪一层条件？只给我一步提示。"
+        },
+        {
+          "id": "arcsin-plot",
+          "intent": "看图",
+          "text": "为什么反正弦的输入有限制？能画给我看吗？"
+        },
+        {
+          "id": "arcsin-book",
+          "intent": "回归教材",
+          "text": "课本哪一页讲反正弦的输入范围？"
+        },
+        {
+          "id": "endpoints",
+          "intent": "追问",
+          "text": "为什么反正弦的两个端点能取？回到本题还要检查什么？",
+          "after": "arcsin-plot"
+        },
+        {
+          "id": "denominator",
+          "intent": "概念",
+          "text": "为什么要另外检查分母不为零？",
+          "after": "first-layer"
+        },
+        {
+          "id": "compare",
+          "intent": "概念",
+          "text": "原卷里的反正切与这题的反正弦，输入范围有什么不同？",
+          "after": "arcsin-book"
+        },
+        {
+          "id": "transfer",
+          "intent": "追问",
+          "text": "如果把反正弦里面换成 2x，我该先写哪一条限制？",
+          "after": "endpoints"
+        }
+      ]
     },
     {
       "paper": "2025—2026 · 经管少学时 A 卷",
