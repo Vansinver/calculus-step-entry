@@ -13,3 +13,29 @@
   .composer-toolbar:has(#study-voice) { flex-wrap: wrap; }
   .dialog-sheet:has(.study-photo-reference) .capture-columns { grid-template-columns: minmax(0, 1fr); }
 }
+
+.study-reply-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin-top: 10px;
+}
+.study-reply-actions .message-save { margin-top: 0; }
+.study-read-aloud {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 12px;
+  border: 1px solid #bca9e8;
+  border-radius: 9px;
+  background: #f2ecff;
+  color: #4e3193;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+.study-read-aloud:hover { background: #ebe1ff; }
+.study-read-aloud:focus-visible { outline: 2px solid #6a38cf; outline-offset: 2px; }
