@@ -81,17 +81,19 @@ function renderExerciseCandidates(draft) {
   $('#exercise-candidates').hidden=!draft.candidates?.length;
   $('#exercise-candidates').innerHTML=(draft.candidates||[]).map((x,i)=>'<article class="exercise-candidate"><div><b>'+esc(x.title)+'</b><span class="tag">'+(exerciseTypes[x.type]||'待选题型')+'</span></div><div>'+renderMessage(x.body)+'</div><button type="button" class="secondary-button" data-use-candidate="'+i+'">替换为这道题</button></article>').join('');
 }
-function openExerciseCapture(source, item=null) {
+function openExerciseCapture(source, item=null, photoDraft=null) {
   if(!source)return;
   if(item&&busy&&questions[state.q]?.personalId===item.id){toast('请等这道题的回复完成后再编辑。');return;}
   const old=state.exerciseCaptureDraft;
   const same=old && old.editId===(item?.id||null) && old.source.kind===source.kind && old.source.questionId===source.questionId && old.source.sessionId===source.sessionId && old.source.messageIndex===source.messageIndex && old.source.content===source.content;
   captureSession=same?{...old,extracting:false,extractingKnowledge:false}:{editId:item?.id||null,source,title:item?.title||'',parts:item?.parts||[],type:item?.type||'',blankCount:item?.blankCount||1,optionParts:partsFromText((item?.options||[]).join('\n')),knowledgePoints:normalizeKnowledge(item?.knowledgePoints),candidates:[]};
   const draft=captureSession;
-  showDialog(item?'编辑练习题':'存为练习题',
+  if(photoDraft) draft.candidates=[photoDraft.candidate];
+  showDialog(item?'编辑练习题':source.kind==='photo'?'确认拍照题面':'存为练习题',
     '<div class="capture-layout"><div class="capture-scroll">'+
+    (source.kind==='photo'?'<div class="capture-intro"><p id="capture-status" role="status"></p>'+(photoDraft?'<details class="study-photo-reference" open><summary>核对照片</summary><img alt="本次识别的题目照片"></details>':'')+'</div>':
     '<div class="capture-intro"><button type="button" id="extract-exercise" class="primary-button">让 AI 提取并填入题目</button><p class="muted">会将来源回复及前面少量对话发给当前模型；提取后请确认题干和题型。</p><p id="capture-status" role="status"></p></div>'+
-    '<details class="capture-source"><summary>查看来源回复</summary><div>'+renderMessage(source.content)+'</div></details>'+
+    '<details class="capture-source"><summary>查看来源回复</summary><div>'+renderMessage(source.content)+'</div></details>')+
     '<div id="exercise-candidates" hidden></div><button type="button" id="undo-exercise-replace" class="secondary-button" hidden>撤销替换，恢复刚才的编辑</button>'+
     '<div class="capture-columns"><section class="capture-fields" aria-label="整理题目">'+
     '<div class="capture-name-type"><div><label for="exercise-name">题目名称</label><input class="api-field" id="exercise-name" maxlength="80" placeholder="给这道题起个名字"></div><div><label for="exercise-type">题型 · 必选</label><select id="exercise-type"><option value="">请选择题型</option>'+Object.entries(exerciseTypes).map(([key,label])=>'<option value="'+key+'">'+label+'</option>').join('')+'</select></div></div>'+
@@ -101,14 +103,15 @@ function openExerciseCapture(source, item=null) {
     '<div id="exercise-choice-fields" hidden><label for="exercise-options">选项 · 每行一个，至少两项</label><div id="exercise-options" class="rich-editor" contenteditable="true" role="textbox" aria-label="题目选项" aria-multiline="true" data-placeholder="每行写一个选项，字母编号会自动生成。"></div><button type="button" class="formula-button" data-insert-formula="exercise-options">＋ 选项公式</button></div>'+
     '<div id="exercise-fill-fields" hidden><label for="exercise-blank-count">填空数量</label><input id="exercise-blank-count" type="number" min="1" max="20" step="1"><p class="muted">请核对数量，预览会按顺序显示填写位置。</p></div>'+
     '</section><section id="exercise-preview" class="exercise-preview" aria-label="题目与作答形式预览"></section></div></div>'+
-    '<footer class="capture-footer"><p id="exercise-error" class="error" role="alert"></p><span>仅保存题目，答案与讲解留在来源对话中。</span><button type="button" id="save-exercise" class="primary-button">确认保存</button></footer></div>');
+    '<footer class="capture-footer"><p id="exercise-error" class="error" role="alert"></p><span>'+(photoDraft?'请核对公式、条件和选项。':'仅保存题目。')+'</span><button type="button" id="save-exercise" class="primary-button">'+(photoDraft?'保存并开始学习':'确认保存')+'</button></footer></div>');
   $('#exercise-knowledge').value=normalizeKnowledge(draft.knowledgePoints).join('、');
   $('#exercise-name').value=draft.title;$('#exercise-type').value=draft.type||'';$('#exercise-blank-count').value=draft.blankCount||1;
   setEditor($('#exercise-editor'),draft.parts);initEditor($('#exercise-editor'));
   setEditor($('#exercise-options'),draft.optionParts||[]);initEditor($('#exercise-options'));
   for(const id of ['exercise-name','exercise-type','exercise-blank-count','exercise-editor','exercise-options','exercise-knowledge']) $('#'+id).addEventListener('input',()=>{rememberCaptureDraft();updateExerciseForm();$('#exercise-error').textContent='';});
   $('#exercise-type').onchange=()=>{rememberCaptureDraft();updateExerciseForm();};
-  $('#extract-exercise').onclick=()=>extractExercise(draft);
+  if(photoDraft) $('.study-photo-reference img').src=photoDraft.photo;
+  if($('#extract-exercise')) $('#extract-exercise').onclick=()=>extractExercise(draft);
   $('#extract-exercise-knowledge').onclick=()=>extractExerciseKnowledge(draft);
   $('#exercise-candidates').onclick=e=>{const button=e.target.closest('[data-use-candidate]');if(button) applyExerciseCandidate(draft,+button.dataset.useCandidate,true);};
   $('#undo-exercise-replace').onclick=()=>{const before=draft.beforeReplace;if(!before)return;$('#exercise-knowledge').value=normalizeKnowledge(before.knowledgePoints).join('、');$('#exercise-name').value=before.title;$('#exercise-type').value=before.type;$('#exercise-blank-count').value=before.blankCount;setEditor($('#exercise-editor'),before.parts);setEditor($('#exercise-options'),before.optionParts);draft.beforeReplace=null;$('#undo-exercise-replace').hidden=true;rememberCaptureDraft();updateExerciseForm();};
@@ -130,8 +133,10 @@ function openExerciseCapture(source, item=null) {
     const now=new Date().toISOString();
     const record={...existing,id:existing?.id||uid(),title,parts:draft.parts,body,type,knowledgePoints:draft.knowledgePoints,options:['single','multiple'].includes(type)?options:[],blankCount:type==='fill'?blankCount:null,source:draft.source,createdAt:existing?.createdAt||now,updatedAt:now,verification:'pending',visibility:'private'};
     const next=existing?personalExercises().map(x=>x.id===existing.id?record:x):[...personalExercises(),record];
+    if(photoDraft&&busy){$('#exercise-error').textContent='请等当前回复完成，再保存并开始学习。';return;}
     if(!storeExercises(next))return;
     delete state.exerciseCaptureDraft;captureSession=null;persist();closeDialog();renderCollection();toast('已保存题干、题型和作答形式。');
+    if(photoDraft) goPersonalPractice(record.id);
   };
   renderExerciseCandidates(draft);
   if(draft.candidates?.length&&!draft.title&&!partsText(draft.parts).trim()) {applyExerciseCandidate(draft,0);if(draft.candidates.length===1)$('#exercise-candidates').hidden=true;}
@@ -201,6 +206,7 @@ function renderPersonalExercises() {
     (items.length?items.slice().reverse().map(x=>'<article class="note-card"><div class="note-meta"><span class="note-kind">个人练习 · '+(exerciseTypes[x.type]||'待补题型')+' · 待核验</span><span>保存于 '+esc(new Date(x.createdAt).toLocaleString('zh-CN'))+'</span></div><h3>'+renderMessage(x.title)+'</h3><div class="note-content">'+partsHTML(x.parts)+(['single','multiple'].includes(x.type)?exerciseAnswerPreview(x.type,x.blankCount,x.options||[]):'')+'</div><p class="muted">来自 '+esc(x.source.questionLabel||x.source.sessionTitle||'私教对话')+'</p><div class="note-actions"><button class="text-button" data-view-exercise-source="'+esc(x.id)+'">查看来源</button><button class="text-button" data-edit-exercise="'+esc(x.id)+'">编辑题目</button></div></article>').join(''):'<div class="empty-state">在私教回复下选择“存为练习题”，确认后会出现在这里。</div>')+'</section>';
 }
 function showExerciseSource(item) {
+  if(item.source.kind==='photo'){showDialog('题目来源','<p>这道题来自手机拍照或相册识别。</p>');return;}
   showDialog('题目来源','<p>'+esc(item.source.questionLabel||item.source.sessionTitle||'私教对话')+'</p><div class="exercise-source-reply">'+renderMessage(item.source.content)+'</div><button id="return-exercise-source" class="secondary-button">回到来源对话</button>');
   $('#return-exercise-source').onclick=()=>{
     const s=item.source;

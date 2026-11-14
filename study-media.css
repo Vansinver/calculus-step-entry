@@ -1,0 +1,15 @@
+
+.study-media-status { margin: 0; padding: 3px 0; font-size: .85em; }
+.study-media-status:empty { display: none; }
+.study-media-photo { display: grid; gap: 12px; }
+.study-media-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.study-media-photo img, .study-photo-reference img { display: block; width: auto; max-width: 100%; max-height: 38vh; margin: 0 auto; object-fit: contain; }
+.study-crop { position: relative; width: fit-content; max-width: 100%; margin: 0 auto; }
+.study-crop canvas { display: block; max-width: 100%; max-height: 38vh; width: auto; height: auto; touch-action: none; cursor: crosshair; }
+.study-crop-help { margin: 0; }
+.study-photo-reference { margin: 0 0 10px; }
+@media (max-width: 480px) {
+  .study-media-button { min-height: 38px; }
+  .composer-toolbar:has(#study-voice) { flex-wrap: wrap; }
+  .dialog-sheet:has(.study-photo-reference) .capture-columns { grid-template-columns: minmax(0, 1fr); }
+}
