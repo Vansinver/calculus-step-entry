@@ -22,7 +22,7 @@
   margin-top: 10px;
 }
 .study-reply-actions .message-save { margin-top: 0; }
-.study-read-aloud {
+.study-reply-actions button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -37,5 +37,5 @@
   font-weight: 650;
   cursor: pointer;
 }
-.study-read-aloud:hover { background: #ebe1ff; }
-.study-read-aloud:focus-visible { outline: 2px solid #6a38cf; outline-offset: 2px; }
+.study-reply-actions button:hover { background: #ebe1ff; }
+.study-reply-actions button:focus-visible { outline: 2px solid #6a38cf; outline-offset: 2px; }
