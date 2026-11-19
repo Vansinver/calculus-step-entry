@@ -373,7 +373,8 @@
         const reply = result?.choices?.[0]?.message;
         if (reply?.refusal || result?.choices?.[0]?.finish_reason === 'content_filter') throw Error('这张照片未通过审核，请更换后重试。');
         if (result?.choices?.[0]?.finish_reason === 'length') throw Error('题面没有识别完整，请裁得更小后重试。');
-        const parsed = JSON.parse(reply?.content || 'null');
+        const raw = (reply?.content || 'null').trim().replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+        const parsed = JSON.parse(raw);
         if (!parsed || typeof parsed.body !== 'string' || !parsed.body.trim() || parsed.body.length > 12000) {
           throw Error('没有识别到完整题干，请调整选区后重试。');
         }
