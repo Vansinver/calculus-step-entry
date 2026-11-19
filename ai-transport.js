@@ -13,6 +13,20 @@
    return names[id] || String(id || 'DeepSeek');
  }
 
+
+ function providerFailure(value) {
+   const error = value?.error;
+   const message = typeof error === 'string' ? error : error?.message;
+   if (typeof message !== 'string') return '';
+   return message
+     .replace(/data:[^\s"']+/gi, '[图片数据]')
+     .replace(/Bearer\s+\S+/gi, '[认证信息]')
+     .replace(/\bsk-[A-Za-z0-9_-]+/g, '[认证信息]')
+     .replace(/https?:\/\/\S+/gi, '[服务地址]')
+     .replace(/[\u0000-\u001f]/g, ' ')
+     .slice(0, 300);
+ }
+
  const mediaPaths = {asr: '/v1/tools/asr', tts: '/v1/tools/tts', photo: '/chat/completions'};
  async function media(action, data, signal) {
    if (!Object.hasOwn(mediaPaths, action)) throw Error('未知的媒体操作。');
@@ -42,7 +56,12 @@
      });
      if (!response.ok) {
        const errors = {400: action === 'photo' ? '图片识别请求被服务拒绝（HTTP 400）。请重试；若仍失败，需要检查服务配置。' : '服务未能处理这次内容（HTTP 400），请调整后重试。',401:'密钥无效，请重新连接。',402:'DeepSeek API 余额不足。',413:'文件太大，请缩短录音或裁小照片。',429:'请求较多，请稍候重试。',503:'服务暂不可用，请检查 DeepSeek 连接后重试。'};
-       throw Error(errors[response.status] || 'DeepSeek 暂时无法完成请求，请重试。');
+       let detail = '';
+       if (action === 'photo') {
+         try { detail = providerFailure(await response.json()); } catch {}
+       }
+       const message = errors[response.status] || 'DeepSeek 暂时无法完成请求，请重试。';
+       throw Error(detail ? message + ' 服务说明：' + detail : message);
      }
      if (action !== 'tts') return await response.json();
      const blob = await response.blob();
