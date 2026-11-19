@@ -461,3 +461,18 @@
   .preview-tools button {min-height:36px;padding-inline:7px}
   .capture-name-type {grid-template-columns:minmax(0,1fr)}
 }
+
+/* Shared touch and mouse menus. */
+ .themed-select {display:block;width:100%;min-width:0;}
+ .themed-select-native {display:none!important;}
+ .themed-select-trigger {display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;text-align:left;background:#fff;border:1px solid #cdbce6;border-radius:10px;padding:10px 12px;font:inherit;color:#49365f;}
+ .themed-select-trigger:hover,.themed-select-trigger[aria-expanded=true] {border-color:#9b7acb;background:#fcfaff;}
+ .themed-select-value {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;}
+ .themed-select-arrow {flex-shrink:0;color:#8062aa;font-size:18px;line-height:1;}
+ .themed-select-popup {position:fixed;z-index:145;overflow:auto;overscroll-behavior:contain;border:1px solid #cdbce6;border-radius:12px;background:#fff;box-shadow:0 10px 30px #4b2c7026;padding:5px;font:14px/1.6 "Microsoft YaHei",sans-serif;color:#49365f;scrollbar-color:#c8b5e2 #f8f4fc;}
+ .themed-option {display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;min-height:42px;border-radius:8px;cursor:pointer;overflow-wrap:anywhere;border:1px solid transparent;}
+ .themed-option:hover,.themed-option.is-active {background:#f5effd;border-color:#e0d3f1;}
+ .themed-option.is-selected {background:#ede4fa;color:#64408c;font-weight:600;}
+ .themed-option[aria-disabled=true] {opacity:.45;cursor:default;}
+.collection-primary-actions {display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;}
+.themed-select-popup {touch-action:pan-y;-webkit-overflow-scrolling:touch;}

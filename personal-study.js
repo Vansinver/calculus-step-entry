@@ -3,7 +3,7 @@ function personalQuestionId(id){return 'personal:'+id;}
 function personalItemForQuestion(q){return q?.personal?personalExercises().find(x=>x.id===q.personalId):null;}
 function personalSignature(item){return JSON.stringify({body:partsText(item.parts||partsFromText(item.body||'')),type:item.type,options:item.options||[],blankCount:item.blankCount||null});}
 function privateQuestionAdapter(item,id){
-  return {id:personalQuestionId(id),personal:true,personalId:id,unavailable:!item||!!item.deletedAt,label:item?.title||'个人题暂不可用',paper:'我的练习题',source:'私教题 · '+(exerciseTypes[item?.type]||'待补题型')+' · 待核验',knowledge:normalizeKnowledge(item?.knowledgePoints).join(' · '),questionText:item?partsText(item.parts||partsFromText(item.body||'')):'',formula:'',conditionFormula:'',symbol:'f(x)',lessons:[],mathKeys:[['分式','\\frac{#0}{#0}'],['π','\\pi'],['∞','\\infty'],['根号','\\sqrt{#0}'],['极限','\\lim_{x\\to #0}'],['导数',"f'(x)"],['∈','\\in'],['并集','\\cup']],prompts:[{id:'personal-hint',intent:'提示',text:'先给我一个提示，不直接给答案。'},{id:'personal-meaning',intent:'题意',text:'帮我理清这道题的已知条件和要求。'}],chatPlaceholder:'写下你的疑问；提交作答时，请切换“这次提交作答”。'};
+  return {id:personalQuestionId(id),personal:true,personalId:id,unavailable:!item||!!item.deletedAt,label:item?.title||'个人题暂不可用',paper:'我的练习题',source:'个人题 · '+(exerciseTypes[item?.type]||'待补题型')+' · 待核验',knowledge:normalizeKnowledge(item?.knowledgePoints).join(' · '),questionText:item?partsText(item.parts||partsFromText(item.body||'')):'',formula:'',conditionFormula:'',symbol:'f(x)',lessons:[],mathKeys:[['分式','\\frac{#0}{#0}'],['π','\\pi'],['∞','\\infty'],['根号','\\sqrt{#0}'],['极限','\\lim_{x\\to #0}'],['导数',"f'(x)"],['∈','\\in'],['并集','\\cup']],prompts:[{id:'personal-hint',intent:'提示',text:'先给我一个提示，不直接给答案。'},{id:'personal-meaning',intent:'题意',text:'帮我理清这道题的已知条件和要求。'}],chatPlaceholder:'写下你的疑问；提交作答时，请切换“这次提交作答”。'};
 }
 function initializeStudySlot(i){for(const k of ['drafts','lastSubmission'])state[k][i]??='';for(const k of ['mathDrafts','tutors','composeParts','noteScratch'])state[k][i]??=[];for(const k of ['gradeModes','questionCollapsed','revealed'])state[k][i]??=false;}
 function hydratePersonalQuestions(){
@@ -89,7 +89,7 @@ function renderPersonalAnswerFields(){
 function renderPersonalPractice(){
   let section=$('#personal-practice');if(!section){section=document.createElement('section');section.id='personal-practice';$('#question-start').after(section);}
   const q=questions[state.q],item=personalItemForQuestion(q);section.hidden=!item;
-  let back=$('#personal-return');if(!back){back=document.createElement('button');back.type='button';back.id='personal-return';back.className='text-button';back.textContent='← 返回收藏与锦囊';$('#question-switch').after(back);back.onclick=()=>setPage('collection');}
+  let back=$('#personal-return');if(!back){back=document.createElement('button');back.type='button';back.id='personal-return';back.className='text-button';back.textContent='← 返回我的题目';$('#question-switch').after(back);back.onclick=()=>setPage('collection');}
   back.hidden=!item;$('.app').classList.toggle('personal-study-active',!!item);
   let options=$('#personal-question-options');if(!options){options=document.createElement('div');options.id='personal-question-options';$('#question-text').after(options);}
   options.hidden=!item||!['single','multiple'].includes(item.type);

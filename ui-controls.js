@@ -1,5 +1,6 @@
-// Shared desktop form menus; native controls remain the data source and touch fallback.
+// Shared form menus for mouse and touch; native controls remain the data source.
 const themedDesktop=matchMedia('(hover: hover) and (pointer: fine)');
+const themedMenus=matchMedia('all');
 const themedEntries=new Map();
 let themedPopup=null,themedActive=null,themedIndex=0,themedItems=[],themedSearch='',themedSearchTimer;
 function themedLabel(node) {
@@ -41,7 +42,7 @@ function highlightThemedItem(index) {
   if(active){themedActive.control.setAttribute('aria-activedescendant',active.id);active.scrollIntoView({block:'nearest'});}
 }
 function openThemedMenu(entry) {
-  if(!themedDesktop.matches||entry.node.disabled)return;
+  if(!themedMenus.matches||entry.node.disabled)return;
   if(themedActive!==entry)closeThemedMenu();
   ensureThemedPopup();themedActive=entry;themedItems=availableThemedItems(entry);
   if(!themedItems.length){closeThemedMenu();return;}
@@ -87,7 +88,7 @@ function themedKeydown(event,entry) {
   }
 }
 function installThemedControl(node) {
-  if(themedEntries.has(node)||!themedDesktop.matches)return;
+  if(themedEntries.has(node)||!themedMenus.matches)return;
   if(node.tagName==='SELECT') {
     const label=themedLabel(node),wrapper=document.createElement('span');wrapper.className='themed-select';
     const control=document.createElement('button');control.type='button';control.className='themed-select-trigger';control.innerHTML='<span class="themed-select-value"></span><span class="themed-select-arrow" aria-hidden="true">⌄</span>';
@@ -99,20 +100,20 @@ function installThemedControl(node) {
   } else if(node.matches('input[list]')) {
     const entry={kind:'suggestions',node,control:node,label:themedLabel(node),listId:node.getAttribute('list')};themedEntries.set(node,entry);
     node.removeAttribute('list');node.setAttribute('role','combobox');node.setAttribute('aria-autocomplete','list');node.setAttribute('aria-expanded','false');
-    node.addEventListener('focus',()=>{if(themedDesktop.matches)openThemedMenu(entry);});
-    node.addEventListener('input',()=>{if(!entry.suppress&&themedDesktop.matches)openThemedMenu(entry);});
-    node.addEventListener('keydown',e=>{if(themedDesktop.matches)themedKeydown(e,entry);});
+    node.addEventListener('focus',()=>{if(themedMenus.matches)openThemedMenu(entry);});
+    node.addEventListener('input',()=>{if(!entry.suppress&&themedMenus.matches)openThemedMenu(entry);});
+    node.addEventListener('keydown',e=>{if(themedMenus.matches)themedKeydown(e,entry);});
   }
 }
 function syncThemedControls() {
   if(themedActive&&!themedActive.node.isConnected)closeThemedMenu();
   for(const [node,entry] of themedEntries) {
     if(!node.isConnected){themedEntries.delete(node);continue;}
-    if(themedDesktop.matches){if(entry.kind==='select'){node.tabIndex=-1;refreshThemedEntry(entry);}else node.removeAttribute('list');}
+    if(themedMenus.matches){if(entry.kind==='select'){node.tabIndex=-1;refreshThemedEntry(entry);}else node.removeAttribute('list');}
     else if(entry.kind==='select'){entry.oldTab===null?node.removeAttribute('tabindex'):node.setAttribute('tabindex',entry.oldTab);}
     else node.setAttribute('list',entry.listId);
   }
-  if(themedDesktop.matches)document.querySelectorAll('select,input[list]').forEach(installThemedControl);
+  if(themedMenus.matches)document.querySelectorAll('select,input[list]').forEach(installThemedControl);
 }
 const themedObserver=new MutationObserver(records=>{
   let scan=false;
@@ -125,13 +126,13 @@ const themedObserver=new MutationObserver(records=>{
   if(themedActive&&!themedActive.node.isConnected)closeThemedMenu();
 });
 themedObserver.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','selected','label'],characterData:true});
-themedDesktop.addEventListener('change',()=>{closeThemedMenu();syncThemedControls();});
+themedMenus.addEventListener('change',()=>{closeThemedMenu();syncThemedControls();});
 document.addEventListener('change',e=>{const entry=themedEntries.get(e.target);if(entry)refreshThemedEntry(entry);},true);
 document.addEventListener('pointerdown',e=>{if(themedActive&&!themedActive.control.contains(e.target)&&!themedPopup?.contains(e.target))closeThemedMenu();},true);
 document.addEventListener('scroll',e=>{if(themedActive&&!themedPopup.contains(e.target))closeThemedMenu();},true);
 window.addEventListener('resize',closeThemedMenu);
 document.addEventListener('click',e=>{
-  const label=e.target.closest('label[for]');if(!label||!themedDesktop.matches)return;
+  const label=e.target.closest('label[for]');if(!label||!themedMenus.matches)return;
   const entry=themedEntries.get(document.getElementById(label.htmlFor));if(entry?.kind==='select'){e.preventDefault();entry.control.focus();}
 });
 syncThemedControls();
