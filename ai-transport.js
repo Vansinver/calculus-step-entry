@@ -41,7 +41,7 @@
        body: action === 'asr' ? payload : JSON.stringify(payload)
      });
      if (!response.ok) {
-       const errors = {400:'服务未能处理这次内容，请调整后重试。',401:'密钥无效，请重新连接。',402:'DeepSeek API 余额不足。',413:'文件太大，请缩短录音或裁小照片。',429:'请求较多，请稍候重试。',503:'服务暂不可用，请检查 DeepSeek 连接后重试。'};
+       const errors = {400: action === 'photo' ? '图片识别请求被服务拒绝（HTTP 400）。请重试；若仍失败，需要检查服务配置。' : '服务未能处理这次内容（HTTP 400），请调整后重试。',401:'密钥无效，请重新连接。',402:'DeepSeek API 余额不足。',413:'文件太大，请缩短录音或裁小照片。',429:'请求较多，请稍候重试。',503:'服务暂不可用，请检查 DeepSeek 连接后重试。'};
        throw Error(errors[response.status] || 'DeepSeek 暂时无法完成请求，请重试。');
      }
      if (action !== 'tts') return await response.json();

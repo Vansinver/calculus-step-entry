@@ -295,15 +295,31 @@
       '<div class="study-crop" hidden><canvas aria-label="拖动选取单题区域"></canvas></div>' +
       '<p class="study-media-status" role="status"></p><div class="study-media-actions">' +
       '<button class="secondary-button" id="study-whole-photo" type="button" hidden>使用整张照片</button>' +
+      '<button class="secondary-button" id="study-rotate-photo" type="button" hidden>顺时针旋转</button>' +
       '<button class="primary-button" id="study-read-photo" type="button" disabled>识别题目</button></div></div>');
     const panel = $('.study-media-photo');
     const status = panel.querySelector('[role=status]');
     const recognize = $('#study-read-photo');
     const whole = $('#study-whole-photo');
+    const rotate = $('#study-rotate-photo');
     const area = panel.querySelector('.study-crop');
     const controller = new AbortController();
     const active = () => panel.isConnected && !$('#dialog-overlay').hidden;
-    let crop, imageVersion = 0;
+    let crop, sourceImage, turns = 0, imageVersion = 0;
+    const renderPhoto = () => {
+      const rotated = document.createElement('canvas');
+      const sideways = turns % 2;
+      const scale = Math.min(1, 1400 / Math.max(sourceImage.width, sourceImage.height));
+      const width = Math.max(1, Math.round(sourceImage.width * scale));
+      const height = Math.max(1, Math.round(sourceImage.height * scale));
+      rotated.width = sideways ? height : width;
+      rotated.height = sideways ? width : height;
+      const ctx = rotated.getContext('2d');
+      ctx.translate(rotated.width / 2, rotated.height / 2);
+      ctx.rotate(turns * Math.PI / 2);
+      ctx.drawImage(sourceImage, -width / 2, -height / 2, width, height);
+      crop = mountCrop(area.querySelector('canvas'), rotated);
+    };
     const cleanup = new MutationObserver(() => {
       if (active()) return;
       controller.abort();
@@ -319,7 +335,7 @@
       const version = ++imageVersion;
       crop = null;
       recognize.disabled = true;
-      area.hidden = whole.hidden = panel.querySelector('.study-crop-help').hidden = true;
+      area.hidden = whole.hidden = rotate.hidden = panel.querySelector('.study-crop-help').hidden = true;
       status.textContent = '';
       const url = URL.createObjectURL(file);
       const bitmap = new Image();
@@ -327,8 +343,10 @@
         bitmap.src = url;
         await bitmap.decode();
         if (!active() || imageVersion !== version) return;
-        crop = mountCrop(area.querySelector('canvas'), bitmap);
-        area.hidden = whole.hidden = panel.querySelector('.study-crop-help').hidden = false;
+        sourceImage = bitmap;
+        turns = 0;
+        renderPhoto();
+        area.hidden = whole.hidden = rotate.hidden = panel.querySelector('.study-crop-help').hidden = false;
         recognize.disabled = false;
       } catch {
         if (active() && imageVersion === version) status.textContent = '这张照片无法读取，请使用 JPG、PNG 或手机截图。';
@@ -337,6 +355,7 @@
       }
     };
     whole.onclick = () => crop?.reset();
+    rotate.onclick = () => { if (sourceImage) { turns = (turns + 1) % 4; renderPhoto(); } };
     recognize.onclick = async () => {
       if (!crop || recognize.dataset.pending) return;
       if (!aiStatus.configured) {
